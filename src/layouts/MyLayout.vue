@@ -95,15 +95,15 @@
 import { openURL } from 'quasar';
 
 export default {
-  name: 'MyLayout',
-  data() {
-    return {
-      leftDrawerOpen: false,
-    };
-  },
-  methods: {
-    openURL,
-  },
+    name: 'MyLayout',
+    data() {
+        return {
+            leftDrawerOpen: false,
+        };
+    },
+    methods: {
+        openURL,
+    },
 };
 </script>
 
