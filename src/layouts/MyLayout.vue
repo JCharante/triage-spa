@@ -92,19 +92,19 @@
 </template>
 
 <script>
-import { openURL } from 'quasar';
+    import { openURL } from 'quasar';
 
-export default {
-    name: 'MyLayout',
-    data() {
-        return {
-            leftDrawerOpen: false,
-        };
-    },
-    methods: {
-        openURL,
-    },
-};
+    export default {
+        name: 'MyLayout',
+        data() {
+            return {
+                leftDrawerOpen: false,
+            };
+        },
+        methods: {
+            openURL,
+        },
+    };
 </script>
 
 <style>

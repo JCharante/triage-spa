@@ -33,7 +33,7 @@ module.exports = {
     rules: {
         'no-param-reassign': 'off',
         'indent': ['warn', 4],
-        "vue/script-indent": ["warn", 4, {
+        "vue/script-indent": ["error", 4, {
             "baseIndent": 1,
             "switchCase": 0,
             "ignores": []
@@ -48,6 +48,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'import/prefer-default-export': 'off',
         'prefer-promise-reject-errors': 'off',
+        'no-unused-vars': 'off',
 
         // allow console.log during development only
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -62,4 +63,4 @@ module.exports = {
             }
         }
     ]
-}
+};

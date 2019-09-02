@@ -1,14 +1,19 @@
 <template>
-  <q-page class="flex flex-center">
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
-  </q-page>
+    <q-page>
+        <items-display/>
+        <items-adder/>
+    </q-page>
 </template>
 
-<style>
+<style scoped>
 </style>
 
 <script>
-export default {
-    name: 'PageIndex',
-};
+    import ItemsDisplay from '../components/ItemsDisplay';
+    import ItemsAdder from '../components/items-adder';
+
+    export default {
+        name: 'PageIndex',
+        components: { ItemsAdder, ItemsDisplay },
+    };
 </script>

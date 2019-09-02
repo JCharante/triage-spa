@@ -1,14 +1,12 @@
 <template>
-  <div id="q-app">
-    <router-view />
-  </div>
+    <p>ItemsDisplay</p>
 </template>
 
 <script>
     export default {
-        name: 'App',
+        name: 'ItemsDisplay',
     };
 </script>
 
-<style>
+<style scoped>
 </style>
