@@ -1,6 +1,12 @@
 <template>
     <q-list bordered>
-        <q-item-label header>Items</q-item-label>
+        <q-item>
+            <q-item-section>
+                <q-item-label>
+                    Task
+                </q-item-label>
+            </q-item-section>
+        </q-item>
         <Item v-for="key in Object.keys(this.getItems)" :key="key" :id="key"/>
     </q-list>
 </template>

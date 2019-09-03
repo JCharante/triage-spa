@@ -4,7 +4,7 @@
             <q-item-label>
                 {{name}}
                 <q-popup-edit v-model="name" title="Edit the Name">
-                    <q-input v-model="name" dense autofocus counter />
+                    <q-input v-model="name" dense autofocus counter :maxlength="150"/>
                 </q-popup-edit>
             </q-item-label>
         </q-item-section>

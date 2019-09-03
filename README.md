@@ -24,3 +24,8 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
+
+
+# Other
+
+The counter when editing the name is just there to show that we can.
