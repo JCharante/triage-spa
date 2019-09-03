@@ -1,3 +1,9 @@
+import Vue from 'vue';
+
 export function addItem(state, itemObj) {
-    state.items.push(itemObj);
+    Vue.set(state.items, itemObj.id, itemObj);
+}
+
+export function setItemPropertiesById(state, newItemObj) {
+    state.items[newItemObj.id] = Object.assign({}, state.items[newItemObj.id], newItemObj);
 }

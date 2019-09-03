@@ -9,3 +9,15 @@ export function createItem({ commit }, itemName) {
         resolve();
     });
 }
+
+
+export function setItemPropertiesById({ commit }, obj) {
+    return new Promise((resolve, reject) => {
+        if ('id' in obj) {
+            commit('setItemPropertiesById', obj);
+            resolve();
+        } else {
+            reject();
+        }
+    });
+}
