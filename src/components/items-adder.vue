@@ -1,7 +1,7 @@
 <template>
     <div>
-        <q-btn color="primary" label="Add Item" @click="prompt = true"/>
-        <q-dialog v-model="prompt" persistent>
+        <q-btn color="primary" label="Add Item" @click="createDiag"/>
+        <q-dialog v-model="prompt" @hide="removeListener" persistent>
             <q-card style="min-width: 400px">
                 <q-card-section>
                     <div class="text-h6">Item Name</div>
@@ -30,6 +30,19 @@
             };
         },
         methods: {
+            catchEnterKey(evt) {
+                if (evt.which === 13 || evt.keyCode === 13) {
+                    this.submit();
+                    this.prompt = false;
+                }
+            },
+            createDiag() {
+                this.prompt = true;
+                window.addEventListener('keyup', this.catchEnterKey);
+            },
+            removeListener() {
+                window.removeEventListener('keyup', this.catchEnterKey);
+            },
             submit() {
                 this.$store.dispatch('createItem', this.name).then(() => {
                     this.name = '';
