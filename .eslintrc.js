@@ -38,6 +38,7 @@ module.exports = {
             "switchCase": 0,
             "ignores": []
         }],
+        'max-len': 'off',
         'import/first': 'off',
         'import/named': 'error',
         'import/namespace': 'error',
