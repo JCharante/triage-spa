@@ -6,6 +6,11 @@
                     Task
                 </q-item-label>
             </q-item-section>
+            <q-item-section>
+                <q-item-label>
+                    Hard Deadline
+                </q-item-label>
+            </q-item-section>
         </q-item>
         <Item v-for="key in Object.keys(this.getItems)" :key="key" :id="key"/>
     </q-list>

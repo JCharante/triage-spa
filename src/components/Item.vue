@@ -8,8 +8,26 @@
                 </q-popup-edit>
             </q-item-label>
         </q-item-section>
+        <q-item-section>
+            {{hardDeadline}}
+            <q-popup-edit v-model="hardDeadline" title="Edit the hard deadline">
+                <q-input filled v-model="hardDeadline" mask="date" :rules="['date']">
+                    <template v-slot:append>
+                        <q-icon name="event" class="cursor-pointer">
+                            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                                <q-date v-model="hardDeadline" @input="() => $refs.qDateProxy.hide()" />
+                            </q-popup-proxy>
+                        </q-icon>
+                    </template>
+                </q-input>
+            </q-popup-edit>
+        </q-item-section>
     </q-item>
 </template>
+
+<style scoped>
+
+</style>
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
@@ -37,10 +55,17 @@
                     });
                 },
             },
+            hardDeadline: {
+                get() {
+                    return this.getItemById(this.id).hardDeadline;
+                },
+                set(newVal) {
+                    return this.setItemPropertiesById({
+                        id: this.id,
+                        hardDeadline: newVal,
+                    });
+                },
+            },
         },
     };
 </script>
-
-<style scoped>
-
-</style>

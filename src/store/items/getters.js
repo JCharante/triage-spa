@@ -1,3 +1,5 @@
+import { baseItem } from './def';
+
 export function getItems(state) {
     console.log(state.items);
     return state.items;
@@ -6,9 +8,8 @@ export function getItems(state) {
 export function getItemById(state, getters) {
     // eslint-disable-next-line func-names
     return function (itemId) {
-        return Object.assign({
+        return Object.assign(baseItem(), {
             id: itemId,
-            name: '',
         }, getters.getItems[itemId] || {});
     };
 }

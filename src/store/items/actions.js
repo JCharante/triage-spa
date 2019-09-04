@@ -1,11 +1,13 @@
+import { baseItem } from './def';
+
 const uuidv4 = require('uuid/v4');
 
 export function createItem({ commit }, itemName) {
     return new Promise((resolve, reject) => {
-        commit('addItem', {
+        commit('addItem', Object.assign(baseItem(), {
             name: itemName,
             id: uuidv4(),
-        });
+        }));
         resolve();
     });
 }
