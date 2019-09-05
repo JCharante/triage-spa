@@ -17,7 +17,7 @@
             </q-item-label>
         </q-item-section>
         <q-item-section>
-            {{recommendedDeadline}}
+            {{recommendedDeadline}} {{timeBeforeRecommended}} <!-- TODO: softer text -->
             <q-popup-edit buttons v-model="recommendedDeadline" title="Edit the recommended deadline">
                 <q-input filled v-model="recommendedDeadline" mask="date" :rules="['date']">
                     <template v-slot:append>
@@ -61,6 +61,7 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
+    import { date } from 'quasar';
 
     export default {
         props: ['id'],
@@ -121,6 +122,22 @@
                         hardDeadline: newVal,
                     });
                 },
+            },
+            timeBeforeRecommended() {
+                if (this.recommendedDeadline.length > 0) {
+                    const then = new Date(this.recommendedDeadline);
+                    const now = new Date();
+                    const diff = date.getDateDiff(then, now, 'days');
+                    if (diff === 0) {
+                        return `(Today! 💪)`;
+                    } else if (diff > 5) {
+                        return `(${diff} days left 🏖️)`;
+                    } else {
+                        return `(${diff} days left)`;
+                    }
+                } else {
+                    return ``;
+                }
             },
         },
     };

@@ -50,6 +50,8 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'prefer-promise-reject-errors': 'off',
         'no-unused-vars': 'off',
+        'quotes': 'off',
+        'no-else-return': 'off',
 
         // allow console.log during development only
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
