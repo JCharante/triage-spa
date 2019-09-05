@@ -3,7 +3,8 @@ export function baseItem() {
         name: '',
         id: '',
         hardDeadline: '',
-        feedbackDeadline: '',
         recommendedDeadline: '',
+        tags: '',
+        timeEstimate: null,
     };
 }

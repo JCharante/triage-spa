@@ -8,6 +8,11 @@
             </q-item-section>
             <q-item-section>
                 <q-item-label>
+                    Tags
+                </q-item-label>
+            </q-item-section>
+            <q-item-section>
+                <q-item-label>
                     Recommended Deadline
                 </q-item-label>
             </q-item-section>
