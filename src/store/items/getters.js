@@ -1,7 +1,7 @@
 import { baseItem } from './def';
 
 export function getItems(state) {
-    console.log(state.items);
+    // sort them....
     return state.items;
 }
 

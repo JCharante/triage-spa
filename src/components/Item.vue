@@ -130,6 +130,8 @@
                     const diff = date.getDateDiff(then, now, 'days');
                     if (diff === 0) {
                         return `(Today! 💪)`;
+                    } else if (diff === 1) {
+                        return `(Tomorrow 😩)`;
                     } else if (diff > 5) {
                         return `(${diff} days left 🏖️)`;
                     } else {
