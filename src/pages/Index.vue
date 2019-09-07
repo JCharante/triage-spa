@@ -15,5 +15,8 @@
     export default {
         name: 'PageIndex',
         components: { ItemsAdder, ItemsDisplay },
+        created() {
+            this.$store.dispatch('initializeStoreFromServer');
+        },
     };
 </script>

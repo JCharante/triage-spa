@@ -1,14 +1,41 @@
 import { baseItem } from './def';
+import { axiosInstance } from '../../boot/axios';
 
 const uuidv4 = require('uuid/v4');
 
+export function initializeStoreFromServer({ commit }) {
+    return new Promise((resolve, reject) => {
+        axiosInstance.post('/', { type: 'getData' })
+            .then((response) => {
+                console.log(response);
+                Object.values(response.data.itemsStore).forEach((item) => {
+                    commit('addItem', item);
+                });
+                resolve();
+            })
+            .catch((err) => {
+                console.log(err);
+                reject();
+            });
+    });
+}
+
 export function createItem({ commit }, itemName) {
     return new Promise((resolve, reject) => {
-        commit('addItem', Object.assign(baseItem(), {
+        const data = Object.assign(baseItem(), {
             name: itemName,
             id: uuidv4(),
-        }));
-        resolve();
+        });
+        axiosInstance.post('/', { type: 'addItem', data })
+            .then((response) => {
+                console.log(response);
+                commit('addItem', data);
+                resolve();
+            })
+            .catch((err) => {
+                console.log(err);
+                reject();
+            });
     });
 }
 
