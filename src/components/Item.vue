@@ -135,6 +135,8 @@
                         return `(${diff} days left 🏖️)`;
                     } else if (diff > 0) {
                         return `(${diff} days left)`;
+                    } else if (diff === -1) {
+                        return `(Yesterday 🤦)`;
                     } else {
                         return `(${diff * -1} days ago!!)`;
                     }
