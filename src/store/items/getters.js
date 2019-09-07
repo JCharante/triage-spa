@@ -15,6 +15,8 @@ export function getItems(state) {
 export function getItemsSorted(state) {
     // starting to just sort by recommended date
     return Object.values(state.items).sort((a, b) => {
+        a = Object.assign({}, baseItem(), a);
+        b = Object.assign({}, baseItem(), b);
         if (a.recommendedDeadline.length > 0 && b.recommendedDeadline.length > 0) {
             return calculateDaysUntilRecommendedDeadline(a) > calculateDaysUntilRecommendedDeadline(b) ? 1 : -1;
         } else {

@@ -63,8 +63,15 @@ export function deleteItemById({ commit }, dataObj) {
 export function setItemPropertiesById({ commit }, obj) {
     return new Promise((resolve, reject) => {
         if ('id' in obj) {
-            commit('setItemPropertiesById', obj);
-            resolve();
+            axiosInstance.post('/', { type: 'modifyItem', data: obj })
+                .then((response) => {
+                    commit('setItemPropertiesById', obj);
+                    resolve();
+                })
+                .catch((err) => {
+                    console.log(err);
+                    reject();
+                });
         } else {
             reject();
         }
