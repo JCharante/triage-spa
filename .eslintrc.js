@@ -50,6 +50,8 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'prefer-promise-reject-errors': 'off',
         'no-unused-vars': 'off',
+        'prefer-template': 'off',
+        'semi': 'warn',
         'quotes': 'off',
         'no-else-return': 'off',
 
