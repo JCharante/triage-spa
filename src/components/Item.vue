@@ -61,7 +61,7 @@
 
 <script>
     import { mapGetters, mapActions } from 'vuex';
-    import { date } from 'quasar';
+    import { calculateDaysUntilRecommendedDeadline } from '../store/items/getters';
 
     export default {
         props: ['id'],
@@ -125,17 +125,18 @@
             },
             timeBeforeRecommended() {
                 if (this.recommendedDeadline.length > 0) {
-                    const then = new Date(this.recommendedDeadline);
-                    const now = new Date();
-                    const diff = date.getDateDiff(then, now, 'days');
+                    const diff = calculateDaysUntilRecommendedDeadline(this);
+
                     if (diff === 0) {
                         return `(Today! 💪)`;
                     } else if (diff === 1) {
                         return `(Tomorrow 😩)`;
                     } else if (diff > 5) {
                         return `(${diff} days left 🏖️)`;
-                    } else {
+                    } else if (diff > 0) {
                         return `(${diff} days left)`;
+                    } else {
+                        return `(${diff * -1} days ago!!)`;
                     }
                 } else {
                     return ``;

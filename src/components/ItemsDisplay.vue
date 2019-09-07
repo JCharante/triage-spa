@@ -22,7 +22,7 @@
                 </q-item-label>
             </q-item-section>
         </q-item>
-        <Item v-for="key in Object.keys(this.getItems)" :key="key" :id="key"/>
+        <Item v-for="value in this.getItemsSorted" :key="value.id" :id="value.id"/>
     </q-list>
 </template>
 
@@ -35,7 +35,7 @@
         components: { Item },
         computed: {
             ...mapGetters([
-                'getItems',
+                'getItemsSorted',
             ]),
         },
     };

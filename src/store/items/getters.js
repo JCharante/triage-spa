@@ -1,8 +1,27 @@
+import { date } from 'quasar';
 import { baseItem } from './def';
 
+export function calculateDaysUntilRecommendedDeadline(obj) {
+    const then = new Date(obj.recommendedDeadline);
+    const now = new Date();
+    const diff = date.getDateDiff(then, now, 'days');
+    return diff;
+}
+
 export function getItems(state) {
-    // sort them....
     return state.items;
+}
+
+export function getItemsSorted(state) {
+    // starting to just sort by recommended date
+    return Object.values(state.items).sort((a, b) => {
+        if (a.recommendedDeadline.length > 0 && b.recommendedDeadline.length > 0) {
+            return calculateDaysUntilRecommendedDeadline(a) > calculateDaysUntilRecommendedDeadline(b) ? 1 : -1;
+        } else {
+            // just return 1
+            return 1;
+        }
+    });
 }
 
 export function getItemById(state, getters) {
