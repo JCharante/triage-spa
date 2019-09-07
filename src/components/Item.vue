@@ -44,6 +44,9 @@
                 </q-input>
             </q-popup-edit>
         </q-item-section>
+        <q-item-section>
+            <q-btn label="Delete" color="secondary" icon="delete" @click="deleteItemById({ id: id })"/>
+        </q-item-section>
     </q-item>
 </template>
 
@@ -69,6 +72,7 @@
         methods: {
             ...mapActions([
                 'setItemPropertiesById',
+                'deleteItemById',
             ]),
             tagsSave(v, i) {
                 console.log(`newVal ${v}`);

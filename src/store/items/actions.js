@@ -39,6 +39,26 @@ export function createItem({ commit }, itemName) {
     });
 }
 
+export function deleteItemById({ commit }, dataObj) {
+    /*
+    dataObj = {
+        id: '',
+    }
+     */
+    return new Promise((resolve, reject) => {
+        axiosInstance.post('/', { type: 'deleteItem', data: dataObj })
+            .then((response) => {
+                console.log(response);
+                commit('deleteItemById', dataObj);
+                resolve();
+            })
+            .catch((err) => {
+                console.log(err);
+                reject();
+            });
+    });
+}
+
 
 export function setItemPropertiesById({ commit }, obj) {
     return new Promise((resolve, reject) => {

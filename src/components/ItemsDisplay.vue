@@ -21,6 +21,11 @@
                     Hard Deadline
                 </q-item-label>
             </q-item-section>
+            <q-item-section>
+                <q-item-label>
+                    【=◈︿◈=】
+                </q-item-label>
+            </q-item-section>
         </q-item>
         <Item v-for="value in this.getItemsSorted" :key="value.id" :id="value.id"/>
     </q-list>
