@@ -52,6 +52,7 @@ module.exports = {
         'no-unused-vars': 'off',
         'prefer-template': 'off',
         'semi': 'warn',
+        'no-useless-return': 'off',
         'quotes': 'off',
         'no-else-return': 'off',
 

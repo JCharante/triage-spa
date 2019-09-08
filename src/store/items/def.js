@@ -6,5 +6,6 @@ export function baseItem() {
         recommendedDeadline: '',
         tags: '',
         timeEstimate: null,
+        status: 'Not Yet Started',
     };
 }

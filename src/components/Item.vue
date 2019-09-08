@@ -45,8 +45,21 @@
             </q-popup-edit>
         </q-item-section>
         <q-item-section>
-            <q-btn label="Delete" color="secondary" icon="delete" @click="deleteItemById({ id: id })"/>
+            <q-select dense class="col" v-model="status" :options="['Not Started', 'In Progress', 'Done', 'Delete']"/>
         </q-item-section>
+        <q-dialog v-model="showDeletePrompt" persistent>
+            <q-card>
+                <q-card-section class="row items-center">
+                    <q-avatar icon="delete" color="primary" text-color="white" />
+                    <span class="q-ml-sm">This will delete this item.</span>
+                </q-card-section>
+
+                <q-card-actions align="right">
+                    <q-btn flat label="Cancel" color="primary" v-close-popup />
+                    <q-btn flat label="Yes, Delete." color="primary" v-close-popup @click="deleteItemById({ id: id })"/>
+                </q-card-actions>
+            </q-card>
+        </q-dialog>
     </q-item>
 </template>
 
@@ -69,6 +82,11 @@
     export default {
         props: ['id'],
         name: 'Item',
+        data() {
+            return {
+                showDeletePrompt: false,
+            };
+        },
         methods: {
             ...mapActions([
                 'setItemPropertiesById',
@@ -125,6 +143,21 @@
                         id: this.id,
                         hardDeadline: newVal,
                     });
+                },
+            },
+            status: {
+                get() {
+                    return this.getItemById(this.id).status;
+                },
+                set(newVal) {
+                    if (newVal !== 'Delete') {
+                        return this.setItemPropertiesById({
+                            id: this.id,
+                            status: newVal,
+                        });
+                    }
+                    this.showDeletePrompt = true;
+                    return new Promise((resolve, reject) => resolve());
                 },
             },
             timeBeforeRecommended() {
