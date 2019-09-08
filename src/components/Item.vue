@@ -1,5 +1,10 @@
 <template>
-    <q-item>
+    <!--
+    Our application must display: CSS styling of the primary visual elements in the application
+    The list of tasks is an important part of the application, and here we are dynamically determining what
+    classes to apply to the item, depending on the status of the item, in order to color the background.
+    -->
+    <q-item :class="{'bg-green-3': status === 'Done', 'bg-lime-3': status === 'In Progress'}">
         <q-item-section>
             <q-item-label class="text-label">
                 {{name}}
@@ -76,6 +81,7 @@
 </style>
 
 <script>
+    import { colors } from 'quasar';
     import { mapGetters, mapActions } from 'vuex';
     import { calculateDaysUntilRecommendedDeadline } from '../store/items/getters';
 
