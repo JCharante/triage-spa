@@ -20,12 +20,14 @@ export function getItems(state) {
 }
 
 export function getItemsSorted(state) {
-    // starting to just sort by recommended date
     const A_IS_FURTHER = 1;
     const B_IS_FURTHER = -1;
     return Object.values(state.items).sort((a, b) => {
         a = Object.assign({}, baseItem(), a);
         b = Object.assign({}, baseItem(), b);
+        return a.priorityPoints > b.priorityPoints ? B_IS_FURTHER : A_IS_FURTHER;
+        /*
+        Old System
         if (a.hardDeadline.length > 0 && b.hardDeadline.length) { // both have hard deadlines
             if (calcDaysUntilHardDeadline(a) === calcDaysUntilHardDeadline(b)) {
                 // Tie breaker is the recommended deadline
@@ -47,6 +49,7 @@ export function getItemsSorted(state) {
             // just return 1
             return A_IS_FURTHER;
         }
+         */
     });
 }
 

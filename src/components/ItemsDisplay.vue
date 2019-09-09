@@ -23,6 +23,11 @@
             </q-item-section>
             <q-item-section>
                 <q-item-label>
+                    Priority Points
+                </q-item-label>
+            </q-item-section>
+            <q-item-section>
+                <q-item-label>
                     Difficulty
                 </q-item-label>
             </q-item-section>

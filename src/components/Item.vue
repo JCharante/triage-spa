@@ -50,13 +50,16 @@
             </q-popup-edit>
         </q-item-section>
         <q-item-section>
+            {{ priorityPoints }}
+        </q-item-section>
+        <q-item-section>
             <q-select dense class="col" v-model="difficulty" :options="['', 'Easy', 'Medium', 'Hard']"/>
         </q-item-section>
         <q-item-section>
             <q-select dense class="col" v-model="importance" :options="['', 'Low', 'Medium', 'High', 'Mission Critical']"/>
         </q-item-section>
         <q-item-section>
-            <q-select dense class="col" v-model="status" :options="['Not Started', 'In Progress', 'Done', 'Delete']"/>
+            <q-select dense class="col" v-model="status" :options="[`Not Started`, 'In Progress', 'Done', 'Delete']"/>
         </q-item-section>
         <q-dialog v-model="showDeletePrompt" persistent>
             <q-card>
@@ -181,6 +184,11 @@
                         id: this.id,
                         difficulty: newVal,
                     });
+                },
+            },
+            priorityPoints: {
+                get() {
+                    return this.getItemById(this.id).priorityPoints;
                 },
             },
             importance: {

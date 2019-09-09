@@ -65,6 +65,8 @@ export function setItemPropertiesById({ commit }, obj) {
         if ('id' in obj) {
             axiosInstance.post('/', { type: 'modifyItem', data: obj })
                 .then((response) => {
+                    console.log(response.data);
+                    obj.priorityPoints = response.data.priorityPoints;
                     commit('setItemPropertiesById', obj);
                     resolve();
                 })

@@ -8,6 +8,7 @@ export function baseItem() {
         timeEstimate: null,
         difficulty: '',
         importance: '',
-        status: 'Not Yet Started',
+        status: `Not Started`,
+        priorityPoints: 0,
     };
 }
