@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="root">
         <q-btn color="primary" label="Add Item" @click="prompt = true"/>
         <q-dialog v-model="prompt" persistent>
             <q-card style="min-width: 400px">
@@ -20,6 +20,13 @@
     </div>
 </template>
 
+<style scoped>
+  #root {
+      display: flex;
+      justify-content: center;
+  }
+</style>
+
 <script>
     export default {
         name: 'items-adder',
@@ -38,7 +45,3 @@
         },
     };
 </script>
-
-<style scoped>
-
-</style>
