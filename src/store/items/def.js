@@ -7,6 +7,7 @@ export function baseItem() {
         tags: '',
         timeEstimate: null,
         difficulty: '',
+        importance: '',
         status: 'Not Yet Started',
     };
 }

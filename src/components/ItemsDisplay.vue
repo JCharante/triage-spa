@@ -27,6 +27,11 @@
                 </q-item-label>
             </q-item-section>
             <q-item-section>
+                <q-item-label>
+                    Importance
+                </q-item-label>
+            </q-item-section>
+            <q-item-section>
                 <q-item-label class="text-center">
                     【=◈︿◈=】
                 </q-item-label>
