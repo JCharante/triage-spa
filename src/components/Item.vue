@@ -87,6 +87,16 @@
     .text-label {
         min-height: 1.2em;
     }
+
+    /*
+    div.q-item:hover {
+        border: black 1px solid;
+    }
+     */
+
+    .q-item div:hover {
+        font-weight: bolder;
+    }
 </style>
 
 <script>

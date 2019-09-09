@@ -1,6 +1,6 @@
 <template>
     <q-list bordered>
-        <q-item>
+        <q-item id="header-item">
             <q-item-section>
                 <q-item-label>
                     Task
@@ -62,4 +62,7 @@
 </script>
 
 <style scoped>
+    #header-item .q-item__section {
+        font-size: 1.3em;
+    }
 </style>
