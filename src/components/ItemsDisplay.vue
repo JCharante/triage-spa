@@ -22,6 +22,11 @@
                 </q-item-label>
             </q-item-section>
             <q-item-section>
+                <q-item-label>
+                    Difficulty
+                </q-item-label>
+            </q-item-section>
+            <q-item-section>
                 <q-item-label class="text-center">
                     【=◈︿◈=】
                 </q-item-label>

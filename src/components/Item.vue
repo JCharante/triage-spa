@@ -50,6 +50,9 @@
             </q-popup-edit>
         </q-item-section>
         <q-item-section>
+            <q-select dense class="col" v-model="difficulty" :options="['', 'Easy', 'Medium', 'Hard']"/>
+        </q-item-section>
+        <q-item-section>
             <q-select dense class="col" v-model="status" :options="['Not Started', 'In Progress', 'Done', 'Delete']"/>
         </q-item-section>
         <q-dialog v-model="showDeletePrompt" persistent>
@@ -164,6 +167,17 @@
                     }
                     this.showDeletePrompt = true;
                     return new Promise((resolve, reject) => resolve());
+                },
+            },
+            difficulty: {
+                get() {
+                    return this.getItemById(this.id).difficulty;
+                },
+                set(newVal) {
+                    return this.setItemPropertiesById({
+                        id: this.id,
+                        difficulty: newVal,
+                    });
                 },
             },
             timeBeforeRecommended() {

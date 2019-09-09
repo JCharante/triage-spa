@@ -6,6 +6,7 @@ export function baseItem() {
         recommendedDeadline: '',
         tags: '',
         timeEstimate: null,
+        difficulty: '',
         status: 'Not Yet Started',
     };
 }
